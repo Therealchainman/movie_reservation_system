@@ -1,0 +1,23 @@
+version: '3'
+services:
+  db:
+    image: postgres:alpine3.20   # or your pulled image tag
+    container_name: postgres_db    # Name for the container
+    environment:
+      POSTGRES_USER: admin         # Set the PostgreSQL admin username
+      POSTGRES_PASSWORD: 123456  # Set the PostgreSQL admin password
+      POSTGRES_DB: default      # Optional: Set the default database to be created
+    volumes:
+      - db-data:/var/lib/postgresql/data  # Persistent volume for data
+    ports:
+      - "5432:5432"                # Expose the default PostgreSQL port
+    networks:
+      - db_network                 # Custom network to isolate services
+
+volumes:
+  db-data:
+    driver: local                  # Persistent storage driver for database data
+
+networks:
+  db_network:
+    driver: bridge                 # Default network driver
