@@ -14,7 +14,7 @@ psql -h localhost -U admin -d default
 
 ```
 
-ipykernel, asyncpg, fastapi, pydantic, uvicorn
+ipykernel, asyncpg, fastapi, pydantic, uvicorn, requests
 ```sh
 python3 -m venv .venv
 source .venv/bin/activate
